@@ -1,0 +1,51 @@
+# Nightly crawl and deploy to GitHub Pages.
+# The last published directory is the starting point, so each site's fingerprint
+# history carries over without committing crawl data to the repository.
+name: Crawl and deploy
+on:
+  schedule:
+    - cron: "17 2 * * *"
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: pages
+  cancel-in-progress: false
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - id: pages
+        uses: actions/configure-pages@v5
+      - name: Start from the published directory
+        run: curl -fsSL "${{ steps.pages.outputs.base_url }}/data/directory.json" -o site/data/directory.json || echo "No published directory yet; using the one in the repository."
+      - name: Crawl
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: node scripts/crawl.mjs
+      - name: Snapshot and build the network
+        run: |
+          node scripts/snapshot.mjs
+          node vendor/agentify-website/scripts/build_network.mjs site/gatehouse.hocon --manifest site/agent-manifest.json
+      - name: Test
+        run: node --test "tests/*.test.mjs"
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

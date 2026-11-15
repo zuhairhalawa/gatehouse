@@ -1,0 +1,20 @@
+name: Test
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Unit and end-to-end tests
+        run: node --test "tests/*.test.mjs"
+      - name: Networks are built and up to date
+        run: |
+          node vendor/agentify-website/scripts/build_network.mjs site/gatehouse.hocon --manifest site/agent-manifest.json --check
+          node vendor/agentify-website/scripts/build_network.mjs demos/kestrel/kestrel_ferries.hocon --manifest demos/kestrel/agent-manifest.json --check

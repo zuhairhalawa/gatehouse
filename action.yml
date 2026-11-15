@@ -1,0 +1,37 @@
+name: agentic-web-check
+description: Check agentic websites against the Worldwide Agentic Web MVP spec, scan their instructions and pin their fingerprint.
+author: zuhairhalawa
+branding:
+  icon: shield
+  color: blue
+inputs:
+  url:
+    description: One network URL per line, such as https://your.site/your_network.
+    required: true
+  strict:
+    description: Fail on warnings too, not only on sites that cannot be loaded.
+    required: false
+    default: "false"
+  pin:
+    description: Optional sha256 fingerprint the site must still match (for one URL).
+    required: false
+    default: ""
+runs:
+  using: composite
+  steps:
+    - name: Check the sites
+      shell: bash
+      env:
+        AWC_URLS: ${{ inputs.url }}
+        AWC_STRICT: ${{ inputs.strict }}
+        AWC_PIN: ${{ inputs.pin }}
+      run: |
+        set -o pipefail
+        args=()
+        while IFS= read -r line; do
+          line="$(echo "$line" | xargs)"
+          [ -n "$line" ] && args+=("$line")
+        done <<< "$AWC_URLS"
+        [ "$AWC_STRICT" = "true" ] && args+=("--strict")
+        [ -n "$AWC_PIN" ] && args+=("--pin" "$AWC_PIN")
+        node "$GITHUB_ACTION_PATH/cli/agentic-web-check.mjs" "${args[@]}" --markdown | tee -a "$GITHUB_STEP_SUMMARY"
