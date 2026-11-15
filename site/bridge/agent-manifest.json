@@ -1,0 +1,10 @@
+{
+  "networks": [
+    {
+      "name": "gatehouse"
+    }
+  ],
+  "actions": {
+    "version": 1
+  }
+}

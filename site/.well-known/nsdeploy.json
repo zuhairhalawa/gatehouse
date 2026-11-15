@@ -1,0 +1,18 @@
+{
+  "protocol": "nsdeploy-link/v1",
+  "exports": [
+    {
+      "network": "gatehouse",
+      "front_man": "gatehouse_concierge",
+      "aliases": [
+        "gatehouse",
+        "gatehouse_concierge"
+      ],
+      "url": "gatehouse"
+    }
+  ],
+  "imports": [],
+  "link_updates": {
+    "mode": "browser-local"
+  }
+}

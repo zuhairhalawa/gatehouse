@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Gatehouse: find, check and let in agentic websites</title>
+    <meta name="description" content="Gatehouse is an open agentic website that finds other agentic sites, checks them against the Worldwide Agentic Web spec, scans their instructions and lets one in only after you approve it.">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="assistant.css">
+    <script type="module" src="view.js"></script>
+    <script type="module" src="site.js"></script>
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to the directory</a>
+    <header class="masthead">
+      <div class="wrap masthead-row">
+        <a class="brand" href="./" aria-label="Gatehouse home">
+          <svg viewBox="0 0 40 40" aria-hidden="true" width="34" height="34"><path d="M6 36V14l14-9 14 9v22h-9V22a5 5 0 0 0-10 0v14Z" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round"/><path d="M15 36h10" stroke="currentColor" stroke-width="2.6"/></svg>
+          <span>Gatehouse</span>
+        </a>
+        <nav aria-label="Sections">
+          <a href="#check">Check a site</a>
+          <a href="#directory">Directory</a>
+          <a href="#gate">Your gate</a>
+          <a href="#assistant">Assistant</a>
+          <a href="#builders">For builders</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero wrap" aria-labelledby="hero-title">
+        <p class="eyebrow">An open agentic website for the Worldwide Agentic Web</p>
+        <h1 id="hero-title">Find agentic sites. Check them. Then let one in.</h1>
+        <p class="lede">Any site can publish agents that run in your browser. Before one gets your question, Gatehouse reads its public files, tests them against the spec, scans its instructions for tricks, and pins the exact version you approve. If that version changes, you are asked again.</p>
+        <div id="stats" class="stats" aria-live="polite"></div>
+        <p class="crawl-note">Directory checked nightly. Last crawl: <span id="crawl-time">loading…</span></p>
+      </section>
+
+      <section id="check" class="panel wrap" aria-labelledby="check-title">
+        <div class="panel-head">
+          <h2 id="check-title">Check a site</h2>
+          <p>Paste a network URL: the folder that holds <code>agent-manifest.json</code>, then the network name.</p>
+        </div>
+        <form id="check-form" class="check-form" novalidate>
+          <label for="check-url">Network URL</label>
+          <div class="check-row">
+            <input id="check-url" name="url" type="url" inputmode="url" autocomplete="off" spellcheck="false" placeholder="https://site.example/my_network" required>
+            <button class="primary" type="submit">Check</button>
+          </div>
+          <p class="hint">Checking reads only that site's public agent files from its own origin. Nothing about you is sent: no key, cookie or chat text.</p>
+        </form>
+        <p id="check-status" class="status" role="status"></p>
+        <div id="check-result"></div>
+      </section>
+
+      <section id="directory" class="panel wrap" aria-labelledby="directory-title">
+        <div class="panel-head">
+          <h2 id="directory-title">Directory <span id="directory-count" class="count"></span></h2>
+          <p>From the official list of agentic websites, entries waiting in its pull requests, domains in the NANDA Index, and sites submitted here.</p>
+        </div>
+        <form id="search-form" class="search" role="search">
+          <label for="search-q" class="visually-hidden">Search the directory</label>
+          <input id="search-q" type="search" placeholder="Search by topic, such as ferries or documents">
+          <div class="chips" role="group" aria-label="Filter by verdict">
+            <button type="button" data-verdict="any" aria-pressed="true">All</button>
+            <button type="button" data-verdict="loadable" aria-pressed="false">Can be let in</button>
+            <button type="button" data-verdict="not_loadable" aria-pressed="false">Not loadable</button>
+            <button type="button" data-verdict="blocked" aria-pressed="false">Blocked</button>
+          </div>
+        </form>
+        <ul id="directory-list" class="directory"></ul>
+      </section>
+
+      <section id="gate" class="panel wrap" aria-labelledby="gate-title">
+        <div class="panel-head">
+          <h2 id="gate-title">Your gate</h2>
+          <p>Sites you let in, each pinned to the version you approved. This list lives in this browser only.</p>
+        </div>
+        <p id="gate-status" class="status" role="status"></p>
+        <div id="gate-list"></div>
+      </section>
+
+      <section id="assistant" class="assistant panel wrap" aria-labelledby="assistant-heading">
+        <div class="panel-head">
+          <h2 id="assistant-heading">Ask Gatehouse</h2>
+          <p>Ask it to find a site, explain a passport, check a site, or pass your question to a site on your gate.</p>
+        </div>
+        <p class="assistant-note">Your messages and this page's data go to the LLM provider you choose in the settings below. A site's agents run here, in your browser, on your model and key; the site itself never gets your key. You confirm every check, every let-in and every contact first.</p>
+        <p id="assistant-status" role="status">Connecting the assistant… If this message stays, the assistant could not load. You can still use the directory and checks directly.</p>
+        <div class="assistant-grid">
+          <div id="agent-app">
+            <div data-ns-slot="header"></div>
+            <div class="assistant-panels">
+              <div data-ns-slot="chat"></div>
+              <div data-ns-slot="agents"></div>
+            </div>
+            <div data-ns-slot="settings"></div>
+          </div>
+          <aside class="evidence" aria-labelledby="evidence-title">
+            <h3 id="evidence-title">Evidence</h3>
+            <p>What the runtime's own trace shows: the router, each contact, and the private fields a site received.</p>
+            <ol id="evidence-list" class="evidence-list" aria-live="polite"><li>Waiting for the assistant…</li></ol>
+          </aside>
+        </div>
+      </section>
+
+      <section id="builders" class="panel wrap" aria-labelledby="builders-title">
+        <div class="panel-head">
+          <h2 id="builders-title">For builders</h2>
+          <p>The same checks, for your own site, before judges or visitors try it.</p>
+        </div>
+        <div class="builder-grid">
+          <article>
+            <h3>Command line</h3>
+            <p>Node 22 or newer. Exit code 1 when a site cannot be loaded.</p>
+            <pre><code>git clone https://github.com/zuhairhalawa/gatehouse
+cd gatehouse
+node cli/agentic-web-check.mjs https://your.site/your_network</code></pre>
+          </article>
+          <article>
+            <h3>GitHub Action</h3>
+            <p>Check your published site on every push and pin its fingerprint.</p>
+            <pre><code>- uses: zuhairhalawa/gatehouse@main
+  with:
+    url: https://your.site/your_network
+    strict: false</code></pre>
+          </article>
+          <article>
+            <h3>Call Gatehouse from your site</h3>
+            <p>Add Gatehouse's network URL to an agent's <code>tools</code> and its origin to <code>allowed_peers</code>. Its directory desk answers "which site can help with this?" from the nightly snapshot.</p>
+            <pre><code id="own-network-url">gatehouse</code></pre>
+          </article>
+          <article>
+            <h3>Get listed</h3>
+            <p>Add your network URL to <code>data/sources.json</code> in a pull request, or to the official list. The nightly crawl picks up both.</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="wrap">
+        <p><strong>What a passport is not.</strong> It records what Gatehouse found in a site's public files on a given day. It does not prove a site is safe, who runs it, or what its own servers do.</p>
+        <p>Built on the <a href="https://github.com/cognizant-ai-labs/agentic-web/blob/main/docs/worldwide_agentic_web_mvp_spec.md">Worldwide Agentic Web MVP spec</a> and its reference browser runtime (Apache-2.0). Gatehouse is Apache-2.0.</p>
+      </div>
+    </footer>
+    <script type="module">
+      const node = document.querySelector("#own-network-url");
+      if (node) node.textContent = new URL("gatehouse", location.href).href;
+    </script>
+  </body>
+</html>

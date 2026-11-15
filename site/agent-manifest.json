@@ -1,0 +1,84 @@
+{
+  "brand": "Gatehouse",
+  "networks": [
+    {
+      "name": "gatehouse",
+      "front_man": "gatehouse_concierge",
+      "hocon": "./gatehouse.network.json",
+      "description": "Gatehouse finds agentic websites, checks them against the Worldwide Agentic Web spec and lets a site in only after you approve it.",
+      "tags": [
+        "agentified-website",
+        "directory",
+        "conformance",
+        "trust"
+      ],
+      "sample_queries": [
+        "Find me an agentic site that knows ferry times.",
+        "Which sites in the directory cannot be loaded, and why?",
+        "Why is Lantern Quay Tours blocked?",
+        "Check https://shutdown-clerk.pages.dev/shutdown_clerk for me.",
+        "Can you book a ferry ticket for me?"
+      ]
+    }
+  ],
+  "llm_router": {
+    "base_url": "https://api.otari.ai/api/v1",
+    "mock": false,
+    "byok_router": "https://api.otari.ai/api/v1"
+  },
+  "allowed_peers": [],
+  "peer_policy": {
+    "mode": "closed",
+    "deny_origins": [],
+    "note": "Calls no fixed partners. Hands off only to the one site the visitor let in through the gate (the gate_peer link slot), after checking its pinned fingerprint and after the runtime consent card."
+  },
+  "agent_mcp": {
+    "protocol": "nsdeploy-agent-mcp/v1",
+    "network": "gatehouse",
+    "front_man": "gatehouse_concierge",
+    "available": false,
+    "reason": "This is a static bundle; a public MCP facade requires an application host."
+  },
+  "theme": {
+    "primary": "#1f3a5f"
+  },
+  "linking": {
+    "protocol": "nsdeploy-link/v1",
+    "exports": [
+      {
+        "network": "gatehouse",
+        "front_man": "gatehouse_concierge",
+        "aliases": [
+          "gatehouse",
+          "gatehouse_concierge"
+        ],
+        "url": "gatehouse"
+      }
+    ],
+    "imports": [],
+    "link_updates": {
+      "mode": "browser-local"
+    }
+  },
+  "deployment": {
+    "mode": "static",
+    "self_contained_runtime": true,
+    "browser_mock": false,
+    "direct_byok": true,
+    "direct_mcp_requires_cors": true,
+    "public_mcp_facade": false
+  },
+  "actions": {
+    "version": 1,
+    "module": "./site-actions.js",
+    "bridge": "./bridge/action-bridge.html",
+    "agentTools": [
+      "search_directory",
+      "get_passport",
+      "check_site",
+      "let_in",
+      "get_gate",
+      "use_admitted"
+    ]
+  }
+}

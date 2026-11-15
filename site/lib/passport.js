@@ -187,6 +187,44 @@ function summarizeAgents(config, frontMan) {
 }
 
 /**
+ * Hash each agent the way the runtime will run it: after its own config filter expands
+ * replacement strings and pushes down defaults. The same function can then hash the
+ * network the runtime actually compiled (session.network.config) and compare.
+ *
+ * :param network: A network definition, raw (from the file) or already filtered.
+ * :param name: The network name.
+ * :return: {agentName: sha256 hex}.
+ */
+export async function agentHashes(network, name = "network") {
+  const filtered = network instanceof AgentNetwork ? network.config : new AgentNetwork(structuredClone(network || {}), name).config;
+  const agents = {};
+  for (const agent of filtered.tools || []) {
+    if (agent && agent.name) {
+      agents[agent.name] = await sha256(canonicalJson({
+        instructions: agent.instructions || "",
+        function: agent.function || null,
+        tools: agent.tools || [],
+        allow: agent.allow || null,
+      }));
+    }
+  }
+  return agents;
+}
+
+/**
+ * Say whether two sets of agent hashes are the same.
+ *
+ * :param a: {agentName: hash}.
+ * :param b: {agentName: hash}.
+ * :return: True when both name the same agents with the same hashes.
+ */
+export function sameAgents(a, b) {
+  const left = Object.keys(a || {}).sort();
+  const right = Object.keys(b || {}).sort();
+  return left.length === right.length && left.every((key, i) => key === right[i] && a[key] === b[key]);
+}
+
+/**
  * Hash each published file and the agents' instructions, so a later check can say
  * exactly what changed.
  *
@@ -201,17 +239,7 @@ export async function fingerprintFiles({ manifest, network, links }, entryName) 
     network: await sha256(canonicalJson(network)),
     links: await sha256(canonicalJson(links ?? null)),
   };
-  const agents = {};
-  for (const agent of network?.tools || []) {
-    if (agent && agent.name) {
-      agents[agent.name] = await sha256(canonicalJson({
-        instructions: agent.instructions || "",
-        function: agent.function || null,
-        tools: agent.tools || [],
-        allow: agent.allow || null,
-      }));
-    }
-  }
+  const agents = await agentHashes(network, entryName);
   const fingerprint = await sha256(canonicalJson({
     entry,
     manifest: parts.manifest,
