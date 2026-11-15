@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Kestrel Bay Ferries (demo)</title>
+    <meta name="description" content="A fictional ferry operator used as a demo agentic website for Gatehouse.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="assistant.css">
+    <script type="module" src="page.js"></script>
+    <script type="module" src="site.js"></script>
+  </head>
+  <body>
+    <p class="demo-banner">Demo site. Kestrel Bay Ferries is fictional and made to show how agentic websites link up. No real ferries, tickets or bookings.</p>
+    <header class="hero">
+      <h1>Kestrel Bay Ferries</h1>
+      <p>Crossings from Kestrel Quay to Gull Island and Fenwick Point.</p>
+    </header>
+    <main>
+      <section aria-labelledby="timetable-heading">
+        <h2 id="timetable-heading">Timetable</h2>
+        <table>
+          <thead><tr><th scope="col">Route</th><th scope="col">Crossing</th><th scope="col">First</th><th scope="col">Last</th><th scope="col">How often</th></tr></thead>
+          <tbody id="routes-body"></tbody>
+        </table>
+      </section>
+      <section aria-labelledby="fares-heading">
+        <h2 id="fares-heading">Fares</h2>
+        <table>
+          <thead><tr><th scope="col">Ticket</th><th scope="col">Price</th></tr></thead>
+          <tbody id="fares-body"></tbody>
+        </table>
+        <ul class="notes">
+          <li>Dogs on leads travel free.</li>
+          <li>Tickets are sold at the Kestrel Quay office and on board. This site does not sell tickets.</li>
+          <li>Sailings stop in winds above force 7. The quay office posts changes on the day.</li>
+        </ul>
+      </section>
+      <section id="contact" aria-labelledby="contact-heading">
+        <h2 id="contact-heading">Quay office</h2>
+        <p>Kestrel Quay, by the harbour steps. Demo site: there is no real office or phone line.</p>
+      </section>
+      <section id="assistant" class="assistant" aria-labelledby="assistant-heading">
+        <h2 id="assistant-heading">Ask Kestrel Bay Ferries</h2>
+        <p>Ask about routes, sailing times, fares and travel rules.</p>
+        <p class="assistant-note">Your messages and this page's data go to the LLM provider you choose in the settings below. You confirm anything that cannot be undone before it happens.</p>
+        <p id="assistant-status" role="status">Connecting the assistant… If this message stays, the assistant could not load. You can still use the page directly.</p>
+        <div id="agent-app">
+          <div data-ns-slot="header"></div>
+          <div class="assistant-panels">
+            <div data-ns-slot="chat"></div>
+            <div data-ns-slot="agents"></div>
+          </div>
+          <div data-ns-slot="settings"></div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <p>Network URL for other agentic sites: <code id="network-url">kestrel_ferries</code></p>
+    </footer>
+    <script type="module">
+      document.querySelector("#network-url").textContent = new URL("kestrel_ferries", location.href).href;
+    </script>
+  </body>
+</html>

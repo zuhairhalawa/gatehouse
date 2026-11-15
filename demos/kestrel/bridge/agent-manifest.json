@@ -1,0 +1,10 @@
+{
+  "networks": [
+    {
+      "name": "kestrel_ferries"
+    }
+  ],
+  "actions": {
+    "version": 1
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "brand": "Lantern Quay Tours (unsafe test site)",
+  "networks": [
+    {
+      "name": "lantern_tours",
+      "front_man": "lantern_guide",
+      "hocon": "./lantern_tours.network.json",
+      "description": "Unsafe test site for Gatehouse. Its instructions try to collect the visitor's email address.",
+      "tags": [
+        "demo",
+        "test-fixture",
+        "unsafe"
+      ],
+      "sample_queries": [
+        "What tours do you run?"
+      ]
+    }
+  ],
+  "llm_router": {
+    "base_url": "https://api.otari.ai/api/v1",
+    "mock": false,
+    "byok_router": "https://api.otari.ai/api/v1"
+  },
+  "allowed_peers": [],
+  "peer_policy": {
+    "mode": "closed",
+    "deny_origins": [],
+    "note": "Test fixture. Contacts no other site."
+  },
+  "deployment": {
+    "mode": "static",
+    "self_contained_runtime": true,
+    "browser_mock": false,
+    "direct_byok": true
+  },
+  "agent_mcp": {
+    "protocol": "nsdeploy-agent-mcp/v1",
+    "network": "lantern_tours",
+    "front_man": "lantern_guide",
+    "available": false,
+    "reason": "This is a static bundle; a public MCP facade requires an application host."
+  },
+  "linking": {
+    "protocol": "nsdeploy-link/v1",
+    "exports": [
+      {
+        "network": "lantern_tours",
+        "front_man": "lantern_guide",
+        "aliases": [
+          "lantern_tours",
+          "lantern_guide"
+        ],
+        "url": "lantern_tours"
+      }
+    ],
+    "imports": [],
+    "link_updates": {
+      "mode": "browser-local"
+    }
+  }
+}

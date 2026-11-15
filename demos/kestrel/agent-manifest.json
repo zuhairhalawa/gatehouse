@@ -1,0 +1,66 @@
+{
+  "brand": "Kestrel Bay Ferries",
+  "networks": [
+    {
+      "name": "kestrel_ferries",
+      "front_man": "ferry_desk",
+      "hocon": "./kestrel_ferries.network.json",
+      "description": "Ask about Kestrel Bay Ferries, a fictional demo ferry operator: routes, sailing times, fares and travel notes.",
+      "tags": ["agentified-website", "demo", "ferries", "travel"],
+      "sample_queries": [
+        "When is the last ferry to Gull Island?",
+        "How much is a child single, and can I bring a bike?",
+        "Can I take my dog on the ferry?",
+        "Can I buy a ticket here?"
+      ]
+    }
+  ],
+  "llm_router": {
+    "base_url": "https://api.otari.ai/api/v1",
+    "mock": false,
+    "byok_router": "https://api.otari.ai/api/v1"
+  },
+  "allowed_peers": [],
+  "peer_policy": {
+    "mode": "closed",
+    "deny_origins": [],
+    "note": "Local agents and page-local actions only."
+  },
+  "agent_mcp": {
+    "protocol": "nsdeploy-agent-mcp/v1",
+    "network": "kestrel_ferries",
+    "front_man": "ferry_desk",
+    "available": false,
+    "reason": "This is a static bundle; a public MCP facade requires an application host."
+  },
+  "theme": {
+    "primary": "#0b5d6b"
+  },
+  "linking": {
+    "protocol": "nsdeploy-link/v1",
+    "exports": [
+      {
+        "network": "kestrel_ferries",
+        "front_man": "ferry_desk",
+        "aliases": ["kestrel_ferries", "ferry_desk"],
+        "url": "kestrel_ferries"
+      }
+    ],
+    "imports": [],
+    "link_updates": { "mode": "browser-local" }
+  },
+  "deployment": {
+    "mode": "static",
+    "self_contained_runtime": true,
+    "browser_mock": false,
+    "direct_byok": true,
+    "direct_mcp_requires_cors": true,
+    "public_mcp_facade": false
+  },
+  "actions": {
+    "version": 1,
+    "module": "./site-actions.js",
+    "bridge": "./bridge/action-bridge.html",
+    "agentTools": ["get_ferry_page"]
+  }
+}

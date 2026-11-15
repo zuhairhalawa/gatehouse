@@ -9,7 +9,9 @@
 // The scan is a set of plain rules, so it runs the same in Node and in the browser and
 // needs no model. It flags; it does not prove that a site is safe.
 
-const HIDDEN_CHARS = /[​-‏‪-‮⁠-⁤﻿]|[\u{E0000}-\u{E007F}]/u;
+const HIDDEN_CLASS = String.raw`[\u200B-\u200F\u202A-\u202E\u2060-\u2064\uFEFF]|[\u{E0000}-\u{E007F}]`;
+const HIDDEN_CHARS = new RegExp(HIDDEN_CLASS, "u");
+const HIDDEN_ALL = new RegExp(HIDDEN_CLASS, "gu");
 
 // A sentence that says not to do something is a rule the publisher sets for its own
 // agent ("Never ask for passwords"), not a request.
@@ -93,7 +95,7 @@ export function sentences(text) {
  * :return: The text, cut with an ellipsis when it is longer than the limit.
  */
 export function excerpt(text, limit = 160) {
-  const clean = String(text).replace(HIDDEN_CHARS, "␣").replace(/\s+/g, " ").trim();
+  const clean = String(text).replace(HIDDEN_ALL, "[hidden]").replace(/\s+/g, " ").trim();
   return clean.length > limit ? `${clean.slice(0, limit - 1)}…` : clean;
 }
 

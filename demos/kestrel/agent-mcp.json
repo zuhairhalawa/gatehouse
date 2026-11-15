@@ -1,0 +1,7 @@
+{
+  "protocol": "nsdeploy-agent-mcp/v1",
+  "network": "kestrel_ferries",
+  "front_man": "ferry_desk",
+  "available": false,
+  "reason": "This is a static bundle; a public MCP facade requires an application host."
+}

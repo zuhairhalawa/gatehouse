@@ -1,0 +1,18 @@
+{
+  "protocol": "nsdeploy-link/v1",
+  "exports": [
+    {
+      "network": "lantern_tours",
+      "front_man": "lantern_guide",
+      "aliases": [
+        "lantern_tours",
+        "lantern_guide"
+      ],
+      "url": "lantern_tours"
+    }
+  ],
+  "imports": [],
+  "link_updates": {
+    "mode": "browser-local"
+  }
+}

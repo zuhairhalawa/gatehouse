@@ -1,0 +1,7 @@
+{
+  "protocol": "nsdeploy-agent-mcp/v1",
+  "network": "lantern_tours",
+  "front_man": "lantern_guide",
+  "available": false,
+  "reason": "This is a static bundle; a public MCP facade requires an application host."
+}

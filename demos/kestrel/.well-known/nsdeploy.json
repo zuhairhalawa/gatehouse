@@ -1,0 +1,18 @@
+{
+  "protocol": "nsdeploy-link/v1",
+  "exports": [
+    {
+      "network": "kestrel_ferries",
+      "front_man": "ferry_desk",
+      "aliases": [
+        "kestrel_ferries",
+        "ferry_desk"
+      ],
+      "url": "kestrel_ferries"
+    }
+  ],
+  "imports": [],
+  "link_updates": {
+    "mode": "browser-local"
+  }
+}
