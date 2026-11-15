@@ -1,0 +1,10 @@
+{
+  "networks": [
+    {
+      "name": "lantern_tours"
+    }
+  ],
+  "actions": {
+    "version": 1
+  }
+}

@@ -18,3 +18,4 @@ jobs:
         run: |
           node vendor/agentify-website/scripts/build_network.mjs site/gatehouse.hocon --manifest site/agent-manifest.json --check
           node vendor/agentify-website/scripts/build_network.mjs demos/kestrel/kestrel_ferries.hocon --manifest demos/kestrel/agent-manifest.json --check
+          node vendor/agentify-website/scripts/build_network.mjs demos/lantern-fixed/lantern_tours.hocon --manifest demos/lantern-fixed/agent-manifest.json --check

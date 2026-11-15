@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lantern Quay Tours (demo, fixed)</title>
+    <meta name="description" content="A fictional tour desk used as a demo agentic website for Gatehouse: the fixed version of its unsafe test site.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="assistant.css">
+    <script type="module" src="page.js"></script>
+    <script type="module" src="site.js"></script>
+  </head>
+  <body>
+    <p class="demo-banner">Demo site. Lantern Quay Tours is fictional. This is the fixed version of Gatehouse's unsafe test site: its builder rewrote every line Gatehouse flagged.</p>
+    <header class="hero">
+      <h1>Lantern Quay Tours</h1>
+      <p>Evening lantern walks around the old harbour and the old town.</p>
+    </header>
+    <main>
+      <section aria-labelledby="walks-heading">
+        <h2 id="walks-heading">Walks</h2>
+        <table>
+          <thead><tr><th scope="col">Walk</th><th scope="col">Starts</th><th scope="col">Length</th><th scope="col">Meet at</th></tr></thead>
+          <tbody id="walks-body"></tbody>
+        </table>
+      </section>
+      <section aria-labelledby="prices-heading">
+        <h2 id="prices-heading">Prices</h2>
+        <table>
+          <thead><tr><th scope="col">Ticket</th><th scope="col">Price</th></tr></thead>
+          <tbody id="prices-body"></tbody>
+        </table>
+        <ul class="notes">
+          <li>Lanterns are provided. Wear shoes for wet cobbles.</li>
+          <li>Pay at the quay kiosk before the walk. This site does not take bookings or payments.</li>
+          <li>Walks run in light rain and stop in storms.</li>
+        </ul>
+      </section>
+      <section id="kiosk" aria-labelledby="kiosk-heading">
+        <h2 id="kiosk-heading">Quay kiosk</h2>
+        <p>At the top of the Lantern Quay steps. Demo site: there is no real kiosk.</p>
+      </section>
+      <section id="assistant" class="assistant" aria-labelledby="assistant-heading">
+        <h2 id="assistant-heading">Ask Lantern Quay Tours</h2>
+        <p>Ask about walks, start times, meeting points and prices.</p>
+        <p class="assistant-note">Your messages and this page's data go to the LLM provider you choose in the settings below. You confirm anything that cannot be undone before it happens.</p>
+        <p id="assistant-status" role="status">Connecting the assistant… If this message stays, the assistant could not load. You can still use the page directly.</p>
+        <div id="agent-app">
+          <div data-ns-slot="header"></div>
+          <div class="assistant-panels">
+            <div data-ns-slot="chat"></div>
+            <div data-ns-slot="agents"></div>
+          </div>
+          <div data-ns-slot="settings"></div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <p>Network URL for other agentic sites: <code id="network-url">lantern_tours</code></p>
+    </footer>
+    <script type="module">
+      document.querySelector("#network-url").textContent = new URL("lantern_tours", location.href).href;
+    </script>
+  </body>
+</html>

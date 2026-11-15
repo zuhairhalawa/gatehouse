@@ -67,7 +67,7 @@ async function main(argv) {
   await writeFile(path.join(out, ".github/workflows/deploy.yml"), WORKFLOW);
   await writeFile(path.join(out, "README.md"), `# Gatehouse demo sites
 
-Two demo agentic websites for [Gatehouse](https://github.com/zuhairhalawa/gatehouse), on
+Three demo agentic websites for [Gatehouse](https://github.com/zuhairhalawa/gatehouse), on
 their own origin so that loading them crosses origins as the
 [Worldwide Agentic Web spec](https://github.com/cognizant-ai-labs/agentic-web/blob/main/docs/worldwide_agentic_web_mvp_spec.md)
 describes.
@@ -76,12 +76,13 @@ describes.
 | --- | --- |
 | Kestrel Bay Ferries (fictional ferry desk) | ${origin}/kestrel/kestrel_ferries |
 | Lantern Quay Tours (**unsafe test site**: its instructions try to collect a visitor's email address) | ${origin}/lantern/lantern_tours |
+| Lantern Quay Tours, fixed (the same desk after its builder rewrote the flagged lines) | ${origin}/lantern-fixed/lantern_tours |
 
 Generated from \`demos/\` in the Gatehouse repository by \`scripts/export_demos.mjs\`.
 Edit the files there, not here. Apache-2.0.
 `);
   console.log(`Wrote ${path.relative(ROOT, out)} for ${origin}/`);
-  console.log(`Network URLs:\n  ${origin}/kestrel/kestrel_ferries\n  ${origin}/lantern/lantern_tours`);
+  console.log(`Network URLs:\n  ${origin}/kestrel/kestrel_ferries\n  ${origin}/lantern/lantern_tours\n  ${origin}/lantern-fixed/lantern_tours`);
 }
 
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {

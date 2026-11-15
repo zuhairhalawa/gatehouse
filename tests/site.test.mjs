@@ -235,3 +235,15 @@ test("the demos export accepts only valid organization names", async () => {
   for (const name of ["gatehouse-demos", "a", "Org9"]) assert.equal(validOrg(name), true, name);
   for (const name of ["", "bad name", "-x", "x-", "a--b", "a/b"]) assert.equal(validOrg(name), false, name);
 });
+
+test("the fixed Lantern site has a clean instruction scan, and the trap stays blocked", async () => {
+  const { scanNetwork, riskLevel } = await import("../site/lib/risk.js");
+  const load = async (file) => parseHocon(await readFile(path.join(ROOT, file), "utf8"));
+  const fixed = await load("demos/lantern-fixed/lantern_tours.network.json");
+  const trap = await load("demos/lantern/lantern_tours.network.json");
+  assert.deepEqual(validateNetwork(new AgentNetwork(fixed, "lantern_tours")).errors, []);
+  assert.deepEqual(scanNetwork(fixed).filter((f) => f.severity !== "low"), []);
+  assert.equal(riskLevel(scanNetwork(fixed)), "none");
+  assert.equal(riskLevel(scanNetwork(trap)), "high");
+  assert.equal(new AgentNetwork(fixed, "lantern_tours").config.tools.length, 2);
+});

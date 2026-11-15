@@ -1,0 +1,14 @@
+:root { --ink: #1f1410; --sea: #7a3b12; --sand: #f7f4f0; --line: #d9cfc4; }
+* { box-sizing: border-box; }
+body { margin: 0; font: 16px/1.55 "Iowan Old Style", Georgia, serif; color: var(--ink); background: var(--sand); }
+.demo-banner { margin: 0; padding: 8px 16px; background: #1f1410; color: #f7f4f0; font: 14px/1.4 system-ui, sans-serif; text-align: center; }
+.hero { padding: 48px 16px 24px; max-width: 960px; margin: 0 auto; }
+.hero h1 { margin: 0; font-size: clamp(2rem, 5vw, 3.2rem); color: var(--sea); letter-spacing: -0.01em; }
+main, footer { max-width: 960px; margin: 0 auto; padding: 0 16px 32px; }
+table { width: 100%; border-collapse: collapse; font: 15px/1.4 system-ui, sans-serif; background: #fffdf9; }
+th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); }
+th { background: #eee5dc; }
+.notes { font-family: system-ui, sans-serif; font-size: 15px; }
+code { word-break: break-all; }
+#agent-app { --ns-primary: #7a3b12; --ns-accent: #7a3b12; --ns-bg: #fffdf9; --ns-msgbg: #f1e9e1; }
+@media (max-width: 720px) { .assistant-panels { grid-template-columns: 1fr; } }

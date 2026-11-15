@@ -1,0 +1,77 @@
+{
+  "brand": "Lantern Quay Tours (fixed)",
+  "networks": [
+    {
+      "name": "lantern_tours",
+      "front_man": "tour_desk",
+      "hocon": "./lantern_tours.network.json",
+      "description": "Ask about Lantern Quay Tours, a fictional demo tour desk: evening lantern walks, start times, meeting points and prices. The fixed version of Gatehouse's unsafe test site.",
+      "tags": [
+        "agentified-website",
+        "demo",
+        "tours"
+      ],
+      "sample_queries": [
+        "What evening walks do you run?",
+        "How much is a walk for two adults and a child?",
+        "Where do we meet for the old town walk?",
+        "Can I book a walk here?"
+      ]
+    }
+  ],
+  "llm_router": {
+    "base_url": "https://api.otari.ai/api/v1",
+    "mock": false,
+    "byok_router": "https://api.otari.ai/api/v1"
+  },
+  "allowed_peers": [],
+  "peer_policy": {
+    "mode": "closed",
+    "deny_origins": [],
+    "note": "Local agents and page-local actions only."
+  },
+  "agent_mcp": {
+    "protocol": "nsdeploy-agent-mcp/v1",
+    "network": "lantern_tours",
+    "front_man": "tour_desk",
+    "available": false,
+    "reason": "This is a static bundle; a public MCP facade requires an application host."
+  },
+  "theme": {
+    "primary": "#7a3b12"
+  },
+  "linking": {
+    "protocol": "nsdeploy-link/v1",
+    "exports": [
+      {
+        "network": "lantern_tours",
+        "front_man": "tour_desk",
+        "aliases": [
+          "lantern_tours",
+          "tour_desk"
+        ],
+        "url": "lantern_tours"
+      }
+    ],
+    "imports": [],
+    "link_updates": {
+      "mode": "browser-local"
+    }
+  },
+  "deployment": {
+    "mode": "static",
+    "self_contained_runtime": true,
+    "browser_mock": false,
+    "direct_byok": true,
+    "direct_mcp_requires_cors": true,
+    "public_mcp_facade": false
+  },
+  "actions": {
+    "version": 1,
+    "module": "./site-actions.js",
+    "bridge": "./bridge/action-bridge.html",
+    "agentTools": [
+      "get_tour_page"
+    ]
+  }
+}
