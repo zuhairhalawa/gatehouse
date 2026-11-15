@@ -1,9 +1,9 @@
 {
   "version": 1,
-  "generatedAt": "2026-11-15T17:24:49.167Z",
+  "generatedAt": "2026-11-15T18:07:10.893Z",
   "counts": {
-    "total": 5,
-    "loadable": 3,
+    "total": 6,
+    "loadable": 4,
     "notLoadable": 1,
     "blocked": 1
   },
@@ -45,7 +45,7 @@
         "verdict": "pass",
         "loadable": true,
         "summary": "Loadable and meets every checked rule.",
-        "checkedAt": "2026-11-15T17:24:47.962Z",
+        "checkedAt": "2026-11-15T18:07:09.084Z",
         "checks": [
           {
             "id": "https",
@@ -187,6 +187,183 @@
       }
     },
     {
+      "url": "https://gatehouse-demos.github.io/lantern-fixed/lantern_tours",
+      "listedName": "Lantern Quay Tours, fixed (demo)",
+      "sources": [
+        "Gatehouse demo site"
+      ],
+      "firstSeen": "2026-11-15T18:07:10.304Z",
+      "lastChanged": "2026-11-15T18:07:10.304Z",
+      "history": [
+        {
+          "at": "2026-11-15T18:07:10.304Z",
+          "fingerprint": "7d0bdb3c37d957898ce0d0393dbd4489dba44e1d0c56646736735968009c4f7e",
+          "verdict": "pass"
+        }
+      ],
+      "passport": {
+        "url": "https://gatehouse-demos.github.io/lantern-fixed/lantern_tours",
+        "base": "https://gatehouse-demos.github.io/lantern-fixed",
+        "name": "lantern_tours",
+        "origin": "https://gatehouse-demos.github.io",
+        "brand": "Lantern Quay Tours (fixed)",
+        "description": "Ask about Lantern Quay Tours, a fictional demo tour desk: evening lantern walks, start times, meeting points and prices. The fixed version of Gatehouse's unsafe test site.",
+        "sampleQueries": [
+          "What evening walks do you run?",
+          "How much is a walk for two adults and a child?",
+          "Where do we meet for the old town walk?",
+          "Can I book a walk here?"
+        ],
+        "tags": [
+          "agentified-website",
+          "demo",
+          "tours"
+        ],
+        "verdict": "pass",
+        "loadable": true,
+        "summary": "Loadable and meets every checked rule.",
+        "checkedAt": "2026-11-15T18:07:10.304Z",
+        "checks": [
+          {
+            "id": "https",
+            "status": "pass",
+            "title": "HTTPS",
+            "detail": "Served over HTTPS.",
+            "ref": "3.2"
+          },
+          {
+            "id": "manifest",
+            "status": "pass",
+            "title": "Manifest",
+            "detail": "agent-manifest.json found at the site base.",
+            "ref": "3.3"
+          },
+          {
+            "id": "cors_manifest",
+            "status": "pass",
+            "title": "Manifest readable by other sites",
+            "detail": "Sends Access-Control-Allow-Origin.",
+            "ref": "3.4"
+          },
+          {
+            "id": "manifest_fields",
+            "status": "pass",
+            "title": "Manifest fields",
+            "detail": "Networks with name, front_man and hocon; router metadata; peer policy.",
+            "ref": "3.3"
+          },
+          {
+            "id": "exact_name",
+            "status": "pass",
+            "title": "Exact network name",
+            "detail": "The manifest lists \"lantern_tours\".",
+            "ref": "3.2"
+          },
+          {
+            "id": "cors_network",
+            "status": "pass",
+            "title": "Network readable by other sites",
+            "detail": "Sends Access-Control-Allow-Origin.",
+            "ref": "3.4"
+          },
+          {
+            "id": "network",
+            "status": "pass",
+            "title": "Network definition",
+            "detail": "Parses and passes the runtime's own validator.",
+            "ref": "2.1"
+          },
+          {
+            "id": "front_man",
+            "status": "pass",
+            "title": "Front agent",
+            "detail": "Front agent \"tour_desk\".",
+            "ref": "2.1"
+          },
+          {
+            "id": "agents",
+            "status": "pass",
+            "title": "Agent count",
+            "detail": "2 agents.",
+            "ref": "6"
+          },
+          {
+            "id": "links",
+            "status": "pass",
+            "title": "links.json",
+            "detail": "Published.",
+            "ref": "3.3"
+          },
+          {
+            "id": "peer_policy",
+            "status": "pass",
+            "title": "Peer policy",
+            "detail": "Closed: only 0 listed origin(s) may be contacted.",
+            "ref": "3.2"
+          },
+          {
+            "id": "router",
+            "status": "pass",
+            "title": "Default router",
+            "detail": "https://api.otari.ai/api/v1. Callers ignore it: a peer runs on the caller's router.",
+            "ref": "4"
+          },
+          {
+            "id": "private_context",
+            "status": "pass",
+            "title": "Private context",
+            "detail": "Deny by default: no agent passes all private fields.",
+            "ref": "2.1"
+          },
+          {
+            "id": "secrets",
+            "status": "pass",
+            "title": "No keys in public files",
+            "detail": "No key-like strings found.",
+            "ref": "4"
+          }
+        ],
+        "risk": {
+          "level": "none",
+          "findings": []
+        },
+        "fingerprint": "7d0bdb3c37d957898ce0d0393dbd4489dba44e1d0c56646736735968009c4f7e",
+        "pin": {
+          "fingerprint": "7d0bdb3c37d957898ce0d0393dbd4489dba44e1d0c56646736735968009c4f7e",
+          "files": {
+            "manifest": "4169608b9db66a7e8b41b2c7bc019715a043cda60e7f73e77128f14fef70bffe",
+            "network": "ac6011578ab018f6aeebfeea5d43274b363c85111d4e8add0f303c38dd33056b",
+            "links": "4ed7e935e5c2f7897fa6d8bb028dabc236e312b4c1703dbedc2ad34ca7ed8ab4"
+          },
+          "agents": {
+            "tour_desk": "75c2b3009c2b3fe8167fa5c50a1f5786f492688962ec365fe0b5bf1996693484",
+            "walk_guide": "493572a781f6eea80d0e8b260a16c5e8bd7b001ff37308338eb0df834ee0ca61"
+          }
+        },
+        "published": [
+          "lantern_tours"
+        ],
+        "externals": [],
+        "mcps": [],
+        "agents": [
+          {
+            "name": "tour_desk",
+            "front": true,
+            "description": "Answers questions about Lantern Quay Tours' evening walks, start times, meeting points and prices.",
+            "tools": [
+              "walk_guide"
+            ]
+          },
+          {
+            "name": "walk_guide",
+            "front": false,
+            "description": "Knows which walks Lantern Quay Tours runs and its standing rules, without times or prices.",
+            "tools": []
+          }
+        ]
+      }
+    },
+    {
       "url": "https://sainath998.github.io/plainly-agent/plainly_document_helper",
       "listedName": "Plainly (agentic edition)",
       "sources": [
@@ -224,7 +401,7 @@
         "verdict": "pass",
         "loadable": true,
         "summary": "Loadable and meets every checked rule.",
-        "checkedAt": "2026-11-15T17:24:46.839Z",
+        "checkedAt": "2026-11-15T18:07:08.249Z",
         "checks": [
           {
             "id": "https",
@@ -402,7 +579,7 @@
         "verdict": "pass",
         "loadable": true,
         "summary": "Loadable and meets every checked rule.",
-        "checkedAt": "2026-11-15T17:24:47.760Z",
+        "checkedAt": "2026-11-15T18:07:08.877Z",
         "checks": [
           {
             "id": "https",
@@ -597,7 +774,7 @@
         "verdict": "fail",
         "loadable": false,
         "summary": "Not loadable: browsers on other sites cannot read its files (missing CORS).",
-        "checkedAt": "2026-11-15T17:24:46.157Z",
+        "checkedAt": "2026-11-15T18:07:07.578Z",
         "checks": [
           {
             "id": "https",
@@ -787,7 +964,7 @@
         "verdict": "blocked",
         "loadable": true,
         "summary": "Its instructions try to steer the caller's model. Do not let it in.",
-        "checkedAt": "2026-11-15T17:24:48.595Z",
+        "checkedAt": "2026-11-15T18:07:09.728Z",
         "checks": [
           {
             "id": "https",

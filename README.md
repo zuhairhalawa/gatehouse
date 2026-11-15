@@ -39,6 +39,7 @@ working answer to those three, built on the reference runtime without changing i
 | `scripts/snapshot.mjs` | Writes the nightly directory snapshot into the network for other sites that call Gatehouse |
 | `demos/kestrel/` | A fictional ferry desk: a good agentic site to let in |
 | `demos/lantern/` | A clearly labelled unsafe test site whose instructions try to collect the visitor's email address |
+| `demos/lantern-fixed/` | The same tour desk after its builder rewrote every flagged line; it passes |
 | `vendor/agentify-website/` | The challenge's reference runtime, templates and build scripts, unchanged (Apache-2.0) |
 | `tests/` | Unit tests and end-to-end tests on the real runtime with a scripted model |
 
@@ -49,6 +50,7 @@ origin, so that letting one in crosses origins as the spec describes:
 
 - Kestrel Bay Ferries: `https://gatehouse-demos.github.io/kestrel/kestrel_ferries`
 - Lantern Quay Tours, the unsafe test site: `https://gatehouse-demos.github.io/lantern/lantern_tours`
+- Lantern Quay Tours, fixed: the same desk after its builder rewrote every line the scan flagged: `https://gatehouse-demos.github.io/lantern-fixed/lantern_tours`
 
 ## Run it locally
 

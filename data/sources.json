@@ -10,6 +10,11 @@
       "url": "https://gatehouse-demos.github.io/lantern/lantern_tours",
       "name": "Lantern Quay Tours (unsafe test site)",
       "source": "Gatehouse demo site"
+    },
+    {
+      "url": "https://gatehouse-demos.github.io/lantern-fixed/lantern_tours",
+      "name": "Lantern Quay Tours, fixed (demo)",
+      "source": "Gatehouse demo site"
     }
   ]
 }
