@@ -1,0 +1,580 @@
+{
+  "version": 1,
+  "generatedAt": "2026-11-15T17:02:50.945Z",
+  "counts": {
+    "total": 3,
+    "loadable": 2,
+    "notLoadable": 1,
+    "blocked": 0
+  },
+  "sites": [
+    {
+      "url": "https://sainath998.github.io/plainly-agent/plainly_document_helper",
+      "listedName": "Plainly (agentic edition)",
+      "sources": [
+        "pull request #29"
+      ],
+      "firstSeen": "2026-11-15T17:02:50.042Z",
+      "lastChanged": "2026-11-15T17:02:50.042Z",
+      "history": [
+        {
+          "at": "2026-11-15T17:02:50.042Z",
+          "fingerprint": "6a4e60f7a2fe33f139274c8ff735080a7e722b01b9d52f0a0d19265700ceeaf1",
+          "verdict": "pass"
+        }
+      ],
+      "passport": {
+        "url": "https://sainath998.github.io/plainly-agent/plainly_document_helper",
+        "base": "https://sainath998.github.io/plainly-agent",
+        "name": "plainly_document_helper",
+        "origin": "https://sainath998.github.io",
+        "brand": "Plainly Assistant",
+        "description": "Paste a bank letter, lab report, rental agreement or bill, and get it explained in plain words. Your personal details are hidden before any agent reads it.",
+        "sampleQueries": [
+          "Load the bank sample and tell me what I need to do and by when.",
+          "Pin a checklist of what I need to do.",
+          "Where can I complain if my bank freezes my account?",
+          "Is a deposit of two months' rent normal?",
+          "Can you send this letter to my bank for me?"
+        ],
+        "tags": [
+          "agentified-website",
+          "privacy",
+          "on-device",
+          "india"
+        ],
+        "verdict": "pass",
+        "loadable": true,
+        "summary": "Loadable and meets every checked rule.",
+        "checkedAt": "2026-11-15T17:02:50.042Z",
+        "checks": [
+          {
+            "id": "https",
+            "status": "pass",
+            "title": "HTTPS",
+            "detail": "Served over HTTPS.",
+            "ref": "3.2"
+          },
+          {
+            "id": "manifest",
+            "status": "pass",
+            "title": "Manifest",
+            "detail": "agent-manifest.json found at the site base.",
+            "ref": "3.3"
+          },
+          {
+            "id": "cors_manifest",
+            "status": "pass",
+            "title": "Manifest readable by other sites",
+            "detail": "Sends Access-Control-Allow-Origin.",
+            "ref": "3.4"
+          },
+          {
+            "id": "manifest_fields",
+            "status": "pass",
+            "title": "Manifest fields",
+            "detail": "Networks with name, front_man and hocon; router metadata; peer policy.",
+            "ref": "3.3"
+          },
+          {
+            "id": "exact_name",
+            "status": "pass",
+            "title": "Exact network name",
+            "detail": "The manifest lists \"plainly_document_helper\".",
+            "ref": "3.2"
+          },
+          {
+            "id": "cors_network",
+            "status": "pass",
+            "title": "Network readable by other sites",
+            "detail": "Sends Access-Control-Allow-Origin.",
+            "ref": "3.4"
+          },
+          {
+            "id": "network",
+            "status": "pass",
+            "title": "Network definition",
+            "detail": "Parses and passes the runtime's own validator.",
+            "ref": "2.1"
+          },
+          {
+            "id": "front_man",
+            "status": "pass",
+            "title": "Front agent",
+            "detail": "Front agent \"document_helper\".",
+            "ref": "2.1"
+          },
+          {
+            "id": "agents",
+            "status": "pass",
+            "title": "Agent count",
+            "detail": "2 agents.",
+            "ref": "6"
+          },
+          {
+            "id": "links",
+            "status": "pass",
+            "title": "links.json",
+            "detail": "Published.",
+            "ref": "3.3"
+          },
+          {
+            "id": "peer_policy",
+            "status": "pass",
+            "title": "Peer policy",
+            "detail": "Closed: only 0 listed origin(s) may be contacted.",
+            "ref": "3.2"
+          },
+          {
+            "id": "router",
+            "status": "pass",
+            "title": "Default router",
+            "detail": "https://api.otari.ai/api/v1. Callers ignore it: a peer runs on the caller's router.",
+            "ref": "4"
+          },
+          {
+            "id": "private_context",
+            "status": "pass",
+            "title": "Private context",
+            "detail": "Deny by default: no agent passes all private fields.",
+            "ref": "2.1"
+          },
+          {
+            "id": "secrets",
+            "status": "pass",
+            "title": "No keys in public files",
+            "detail": "No key-like strings found.",
+            "ref": "4"
+          }
+        ],
+        "risk": {
+          "level": "none",
+          "findings": []
+        },
+        "fingerprint": "6a4e60f7a2fe33f139274c8ff735080a7e722b01b9d52f0a0d19265700ceeaf1",
+        "pin": {
+          "fingerprint": "6a4e60f7a2fe33f139274c8ff735080a7e722b01b9d52f0a0d19265700ceeaf1",
+          "files": {
+            "manifest": "9ae2a6147f508843bba674244b82417af048b86848a03724ddeefc9e4a776a18",
+            "network": "d8cc512cb11f8ccbd390d44b2e17601262d22d7333a1b98698b094807aa66277",
+            "links": "e7ec6ceb674aeb1ca5188e8f075fad2fca8645d0966a86599a40fe2a73546a15"
+          },
+          "agents": {
+            "document_helper": "3938d91a4510fdbd7be71158f8bc267e1691d1993cf77e8813e945a8dfb8c34a",
+            "rights_guide": "36a084cfaa7fc8d1867cf76850fdee68c0f1c7f47b05f6cb4036e14f97a9e7c9"
+          }
+        },
+        "published": [
+          "plainly_document_helper"
+        ],
+        "externals": [],
+        "mcps": [],
+        "agents": [
+          {
+            "name": "document_helper",
+            "front": true,
+            "description": "Explains the visitor's document in plain words: what it is, what to do and by when, the money involved and what to watch out for.",
+            "tools": [
+              "rights_guide"
+            ]
+          },
+          {
+            "name": "rights_guide",
+            "front": false,
+            "description": "Explains, in general terms, a person's options in India for a bank, electricity, rental or medical-report situation: where to complain and what is usual.",
+            "tools": []
+          }
+        ]
+      }
+    },
+    {
+      "url": "https://shutdown-clerk.pages.dev/shutdown_clerk",
+      "listedName": "Shutdown Clerk",
+      "sources": [
+        "pull request #27"
+      ],
+      "firstSeen": "2026-11-15T17:02:50.693Z",
+      "lastChanged": "2026-11-15T17:02:50.693Z",
+      "history": [
+        {
+          "at": "2026-11-15T17:02:50.693Z",
+          "fingerprint": "3e1318ceec622fec032077a539ff5a6cedbf4c2f832084577867765741a7f87d",
+          "verdict": "pass"
+        }
+      ],
+      "passport": {
+        "url": "https://shutdown-clerk.pages.dev/shutdown_clerk",
+        "base": "https://shutdown-clerk.pages.dev",
+        "name": "shutdown_clerk",
+        "origin": "https://shutdown-clerk.pages.dev",
+        "brand": "Shutdown Clerk",
+        "description": "Ask what breaks in a public GitHub repository before a vendor shutdown or breaking release. Agents in your browser read the repo, answer with file:line evidence and the official source, and plan the fixes.",
+        "sampleQueries": [
+          "What breaks in vercel/nextjs-subscription-payments before March 2027?",
+          "Which shutdowns and breaking releases are still ahead this year?",
+          "Scan kpi-ua/schedule.kpi.ua and tell me what to fix first.",
+          "What is the Open Agentic Web Challenge and how do I take part?",
+          "Can you open a pull request with the fixes for me?"
+        ],
+        "tags": [
+          "developer-tools",
+          "github",
+          "deprecations"
+        ],
+        "verdict": "pass",
+        "loadable": true,
+        "summary": "Loadable and meets every checked rule.",
+        "checkedAt": "2026-11-15T17:02:50.693Z",
+        "checks": [
+          {
+            "id": "https",
+            "status": "pass",
+            "title": "HTTPS",
+            "detail": "Served over HTTPS.",
+            "ref": "3.2"
+          },
+          {
+            "id": "manifest",
+            "status": "pass",
+            "title": "Manifest",
+            "detail": "agent-manifest.json found at the site base.",
+            "ref": "3.3"
+          },
+          {
+            "id": "cors_manifest",
+            "status": "pass",
+            "title": "Manifest readable by other sites",
+            "detail": "Sends Access-Control-Allow-Origin.",
+            "ref": "3.4"
+          },
+          {
+            "id": "manifest_fields",
+            "status": "pass",
+            "title": "Manifest fields",
+            "detail": "Networks with name, front_man and hocon; router metadata; peer policy.",
+            "ref": "3.3"
+          },
+          {
+            "id": "exact_name",
+            "status": "pass",
+            "title": "Exact network name",
+            "detail": "The manifest lists \"shutdown_clerk\".",
+            "ref": "3.2"
+          },
+          {
+            "id": "cors_network",
+            "status": "pass",
+            "title": "Network readable by other sites",
+            "detail": "Sends Access-Control-Allow-Origin.",
+            "ref": "3.4"
+          },
+          {
+            "id": "network",
+            "status": "pass",
+            "title": "Network definition",
+            "detail": "Parses and passes the runtime's own validator.",
+            "ref": "2.1"
+          },
+          {
+            "id": "front_man",
+            "status": "pass",
+            "title": "Front agent",
+            "detail": "Front agent \"shutdown_clerk\".",
+            "ref": "2.1"
+          },
+          {
+            "id": "agents",
+            "status": "pass",
+            "title": "Agent count",
+            "detail": "4 agents.",
+            "ref": "6"
+          },
+          {
+            "id": "links",
+            "status": "pass",
+            "title": "links.json",
+            "detail": "Published.",
+            "ref": "3.3"
+          },
+          {
+            "id": "peer_policy",
+            "status": "pass",
+            "title": "Peer policy",
+            "detail": "Closed: only 1 listed origin(s) may be contacted.",
+            "ref": "3.2"
+          },
+          {
+            "id": "router",
+            "status": "pass",
+            "title": "Default router",
+            "detail": "browser://local. Callers ignore it: a peer runs on the caller's router.",
+            "ref": "4"
+          },
+          {
+            "id": "private_context",
+            "status": "pass",
+            "title": "Private context",
+            "detail": "Deny by default: no agent passes all private fields.",
+            "ref": "2.1"
+          },
+          {
+            "id": "secrets",
+            "status": "pass",
+            "title": "No keys in public files",
+            "detail": "No key-like strings found.",
+            "ref": "4"
+          }
+        ],
+        "risk": {
+          "level": "none",
+          "findings": []
+        },
+        "fingerprint": "3e1318ceec622fec032077a539ff5a6cedbf4c2f832084577867765741a7f87d",
+        "pin": {
+          "fingerprint": "3e1318ceec622fec032077a539ff5a6cedbf4c2f832084577867765741a7f87d",
+          "files": {
+            "manifest": "bddab4736c9bd270bca03c6d063ea2f35f15d7263b8313648f69245be334096e",
+            "network": "4899b768e66aea5fc2abe16f67a565987b6750bf8f2f658bec6ee5ffaa7612a0",
+            "links": "d6b13c5f1941a4c69dc6a76f6ab8d077590aa66ce784d60f642f9f22f465ebc7"
+          },
+          "agents": {
+            "shutdown_clerk": "14a6d7e2b8c6d29a9b28bca38d72ed799e8bdb775a67da26fc28a8819cf5fcc2",
+            "repo_scanner": "30b9253ddbb2e6251d4e04d6b54c2110afdb88d81432adde6ca56c352e35b0dd",
+            "fix_planner": "8313dff5e1842d841c4dbb24dfadc72cb6f271243b45238ef7ee37429632ed67",
+            "deadline_explainer": "fba738db968ec8b897e7808d583776daecab187bed6db001f7e4a437746d82f0"
+          }
+        },
+        "published": [
+          "shutdown_clerk"
+        ],
+        "externals": [
+          "https://worldwideagenticweb.org/wp-content/plugins/wwaw-agent-widget/assets/worldwide_agentic_web_widget/v1.0.9/worldwide_agentic_web_widget"
+        ],
+        "mcps": [],
+        "agents": [
+          {
+            "name": "shutdown_clerk",
+            "front": true,
+            "description": "Answers what breaks in a public GitHub repository before a given date because of vendor shutdowns and breaking releases, with file:line evidence, official sources and an ordered fix plan.",
+            "tools": [
+              "repo_scanner",
+              "fix_planner",
+              "deadline_explainer",
+              "https://worldwideagenticweb.org/wp-content/plugins/wwaw-agent-widget/assets/worldwide_agentic_web_widget/v1.0.9/worldwide_agentic_web_widget"
+            ]
+          },
+          {
+            "name": "repo_scanner",
+            "front": false,
+            "description": "Reads one public GitHub repository and returns its findings: id, deadline, date, file:line and a link for each, plus the scan id.",
+            "tools": []
+          },
+          {
+            "name": "fix_planner",
+            "front": false,
+            "description": "Turns a scan into an ordered fix plan: soonest deadline first, with files, fixes and the CLI command for each step.",
+            "tools": []
+          },
+          {
+            "name": "deadline_explainer",
+            "front": false,
+            "description": "Explains specific findings of a scan: the matched line, why it breaks on its date, the fix, the official source and the checker's diff.",
+            "tools": []
+          }
+        ]
+      }
+    },
+    {
+      "url": "https://worldwideagenticweb.org/wp-content/plugins/wwaw-agent-widget/assets/worldwide_agentic_web_widget/v1.0.9/worldwide_agentic_web_widget",
+      "listedName": "The Open Agentic Web Challenge",
+      "sources": [
+        "official list"
+      ],
+      "firstSeen": "2026-11-15T17:02:49.859Z",
+      "lastChanged": "2026-11-15T17:02:49.859Z",
+      "history": [
+        {
+          "at": "2026-11-15T17:02:49.859Z",
+          "fingerprint": "e6374833ca869fd98262e2a23f19da35983998949d98e30261990fde7d6eee9e",
+          "verdict": "fail"
+        }
+      ],
+      "passport": {
+        "url": "https://worldwideagenticweb.org/wp-content/plugins/wwaw-agent-widget/assets/worldwide_agentic_web_widget/v1.0.9/worldwide_agentic_web_widget",
+        "base": "https://worldwideagenticweb.org/wp-content/plugins/wwaw-agent-widget/assets/worldwide_agentic_web_widget/v1.0.9",
+        "name": "worldwide_agentic_web_widget",
+        "origin": "https://worldwideagenticweb.org",
+        "brand": "Worldwide Agentic Web Widget",
+        "description": "Answers questions about the World Wide Agentic Web and routes detailed questions to grounded specialists.",
+        "sampleQueries": [
+          "What is the World Wide Agentic Web initiative?",
+          "What are the dates, prize, tracks, and project areas for the challenge?",
+          "How can I pre-register, subscribe, or discuss a partnership?",
+          "Where are the workshop and technical resources?"
+        ],
+        "tags": [
+          "deployed",
+          "nsdeploy"
+        ],
+        "verdict": "fail",
+        "loadable": false,
+        "summary": "Not loadable: browsers on other sites cannot read its files (missing CORS).",
+        "checkedAt": "2026-11-15T17:02:49.859Z",
+        "checks": [
+          {
+            "id": "https",
+            "status": "pass",
+            "title": "HTTPS",
+            "detail": "Served over HTTPS.",
+            "ref": "3.2"
+          },
+          {
+            "id": "manifest",
+            "status": "pass",
+            "title": "Manifest",
+            "detail": "agent-manifest.json found at the site base.",
+            "ref": "3.3"
+          },
+          {
+            "id": "cors_manifest",
+            "status": "fail",
+            "title": "Manifest readable by other sites",
+            "detail": "No Access-Control-Allow-Origin header: browsers on other sites cannot read it.",
+            "ref": "3.4"
+          },
+          {
+            "id": "manifest_fields",
+            "status": "pass",
+            "title": "Manifest fields",
+            "detail": "Networks with name, front_man and hocon; router metadata; peer policy.",
+            "ref": "3.3"
+          },
+          {
+            "id": "exact_name",
+            "status": "pass",
+            "title": "Exact network name",
+            "detail": "The manifest lists \"worldwide_agentic_web_widget\".",
+            "ref": "3.2"
+          },
+          {
+            "id": "cors_network",
+            "status": "fail",
+            "title": "Network readable by other sites",
+            "detail": "No Access-Control-Allow-Origin header: browsers on other sites cannot read it.",
+            "ref": "3.4"
+          },
+          {
+            "id": "network",
+            "status": "pass",
+            "title": "Network definition",
+            "detail": "Parses and passes the runtime's own validator.",
+            "ref": "2.1"
+          },
+          {
+            "id": "front_man",
+            "status": "pass",
+            "title": "Front agent",
+            "detail": "Front agent \"worldwide_agentic_web_guide\".",
+            "ref": "2.1"
+          },
+          {
+            "id": "agents",
+            "status": "pass",
+            "title": "Agent count",
+            "detail": "4 agents.",
+            "ref": "6"
+          },
+          {
+            "id": "links",
+            "status": "pass",
+            "title": "links.json",
+            "detail": "Published.",
+            "ref": "3.3"
+          },
+          {
+            "id": "peer_policy",
+            "status": "warn",
+            "title": "Peer policy",
+            "detail": "Mode \"open\": the network may ask to contact origins it does not list.",
+            "ref": "3.2"
+          },
+          {
+            "id": "router",
+            "status": "pass",
+            "title": "Default router",
+            "detail": "https://api.openai.com/v1. Callers ignore it: a peer runs on the caller's router.",
+            "ref": "4"
+          },
+          {
+            "id": "private_context",
+            "status": "pass",
+            "title": "Private context",
+            "detail": "Deny by default: no agent passes all private fields.",
+            "ref": "2.1"
+          },
+          {
+            "id": "secrets",
+            "status": "pass",
+            "title": "No keys in public files",
+            "detail": "No key-like strings found.",
+            "ref": "4"
+          }
+        ],
+        "risk": {
+          "level": "none",
+          "findings": []
+        },
+        "fingerprint": "e6374833ca869fd98262e2a23f19da35983998949d98e30261990fde7d6eee9e",
+        "pin": {
+          "fingerprint": "e6374833ca869fd98262e2a23f19da35983998949d98e30261990fde7d6eee9e",
+          "files": {
+            "manifest": "748be7c7802afde036b3cb4aec851dee110844d09fb9d186103128110bb2c6f7",
+            "network": "1248f189c7052a9048008a7b200657e4e4ec5ac7df7649b04a8f30fd37352a16",
+            "links": "4a470c0a189174569fc74faa437b42b18f05d27f7cf9f75cebd0399d829827b9"
+          },
+          "agents": {
+            "worldwide_agentic_web_guide": "e4ad6b5018b2aff88dd2be5f2ecb1b001066ef8d0689b1fbec2e56ec166e3148",
+            "initiative_guide": "dc0fd620de77a0733976e9da2c7393e3dfaad755f60ba6103224c861979270ab",
+            "challenge_guide": "f5973ef5ea4229b348e2b1c3fc7db2ae8a81231c9b607897bb19b0c38b5ab582",
+            "participation_guide": "7f3e6be0d22009a6c8bf20253d2eed34ffac2aca37894f0c392c8d1c4f030f22"
+          }
+        },
+        "published": [
+          "worldwide_agentic_web_widget"
+        ],
+        "externals": [],
+        "mcps": [],
+        "agents": [
+          {
+            "name": "worldwide_agentic_web_guide",
+            "front": true,
+            "description": "Answers questions about the World Wide Agentic Web and routes detailed questions to grounded specialists.",
+            "tools": [
+              "initiative_guide",
+              "challenge_guide",
+              "participation_guide"
+            ]
+          },
+          {
+            "name": "initiative_guide",
+            "front": false,
+            "description": "Explains the initiative's mission, openness, benefits, safety goals, and collaboration model.",
+            "tools": []
+          },
+          {
+            "name": "challenge_guide",
+            "front": false,
+            "description": "Answers questions about challenge dates, tracks, audiences, and project areas.",
+            "tools": []
+          },
+          {
+            "name": "participation_guide",
+            "front": false,
+            "description": "Provides exact participation and resource links without claiming to perform external actions.",
+            "tools": []
+          }
+        ]
+      }
+    }
+  ]
+}
