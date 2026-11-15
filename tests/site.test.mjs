@@ -229,3 +229,9 @@ test("the demo sites build into valid two-agent networks, and the unsafe one say
   assert.match(page, /Unsafe test site/);
   assert.ok(twoAgentNetwork().tools.length === 2);
 });
+
+test("the demos export accepts only valid organization names", async () => {
+  const { validOrg } = await import("../scripts/export_demos.mjs");
+  for (const name of ["gatehouse-demos", "a", "Org9"]) assert.equal(validOrg(name), true, name);
+  for (const name of ["", "bad name", "-x", "x-", "a--b", "a/b"]) assert.equal(validOrg(name), false, name);
+});

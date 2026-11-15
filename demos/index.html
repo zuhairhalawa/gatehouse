@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Gatehouse demo sites</title>
+    <meta name="description" content="Two demo agentic websites for Gatehouse: a fictional ferry desk and a labelled unsafe test site.">
+    <style>
+      body { margin: 0 auto; max-width: 760px; padding: 40px 16px; font: 17px/1.55 system-ui, sans-serif; color: #18202e; background: #f4efe4; }
+      h1 { font: 600 2.2rem/1.1 Georgia, serif; margin: 0 0 12px; }
+      li { margin-bottom: 18px; }
+      code { word-break: break-all; font-size: 0.9em; }
+      .warn { color: #8a1f12; font-weight: 600; }
+    </style>
+  </head>
+  <body>
+    <h1>Gatehouse demo sites</h1>
+    <p>This origin hosts two demo agentic websites for <a id="gatehouse-link" href="https://github.com/zuhairhalawa/gatehouse">Gatehouse</a>. They live on a different origin from Gatehouse on purpose, so loading them shows the spec's cross-origin rules at work.</p>
+    <ul>
+      <li><a href="kestrel/">Kestrel Bay Ferries</a>: a fictional ferry desk with a two-agent network. Network URL: <code data-network="kestrel/kestrel_ferries"></code></li>
+      <li><a href="lantern/">Lantern Quay Tours</a>: <span class="warn">an unsafe test site.</span> Its instructions try to collect a visitor's email address, so an instruction scan should block it. Network URL: <code data-network="lantern/lantern_tours"></code></li>
+    </ul>
+    <script>
+      for (const node of document.querySelectorAll("[data-network]")) {
+        node.textContent = new URL(node.dataset.network, location.href).href;
+      }
+    </script>
+  </body>
+</html>
