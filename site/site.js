@@ -333,7 +333,7 @@ export class AssistantMount {
           ? findings.filter((f) => f.severity !== "low").map((f) => f.message).join(" ")
           : "Nothing serious found.",
         "Pinned version": `sha256:${p.fingerprint}`,
-        "Checked": p.checkedAt,
+        "Checked": new Date(p.checkedAt).toLocaleString(undefined, { dateStyle: "medium", timeStyle: "short" }),
         "Its agents get": "Only the request text the assistant writes. Not your chat, your key or private fields.",
       };
     }
