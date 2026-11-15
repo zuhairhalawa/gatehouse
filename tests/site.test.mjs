@@ -247,3 +247,11 @@ test("the fixed Lantern site has a clean instruction scan, and the trap stays bl
   assert.equal(riskLevel(scanNetwork(trap)), "high");
   assert.equal(new AgentNetwork(fixed, "lantern_tours").config.tools.length, 2);
 });
+
+test("Gatehouse's own network and the passing demo sites scan clean", async () => {
+  const { scanNetwork } = await import("../site/lib/risk.js");
+  for (const file of ["site/gatehouse.network.json", "demos/kestrel/kestrel_ferries.network.json", "demos/lantern-fixed/lantern_tours.network.json"]) {
+    const findings = scanNetwork(parseHocon(await readFile(path.join(ROOT, file), "utf8"))).filter((f) => f.severity !== "low");
+    assert.deepEqual(findings, [], file);
+  }
+});
