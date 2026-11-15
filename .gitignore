@@ -1,0 +1,7 @@
+RESEARCH.md
+CONCEPT.md
+NOTES*.md
+.impeccable/
+node_modules/
+*.log
+.serve-logs/
