@@ -7,7 +7,7 @@
   --ink: #18202e;
   --ink-2: #4a5263;
   --navy: #1f3a5f;
-  --brass: #9a6a1f;
+  --brass: #7d5512;
   --line: #d8ccb6;
   --pass: #1d6b44;
   --warn: #8a5a00;
@@ -50,7 +50,7 @@ code { word-break: break-all; }
 /* Hero */
 .hero { padding: 56px 0 28px; }
 .eyebrow { margin: 0 0 10px; color: var(--brass); font: 600 0.8rem/1.2 var(--sans); letter-spacing: 0.14em; text-transform: uppercase; }
-.hero h1 { margin: 0; max-width: 17ch; font: 600 clamp(2.2rem, 5.4vw, 3.9rem)/1.05 var(--display); letter-spacing: -0.015em; color: var(--ink); }
+.hero h1 { margin: 0; max-width: 17ch; font: 600 clamp(2.2rem, 5.4vw, 3.9rem)/1.12 var(--display); letter-spacing: -0.015em; color: var(--ink); }
 .lede { max-width: 62ch; font-size: 1.12rem; color: var(--ink-2); margin: 18px 0 26px; }
 .stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; max-width: 760px; }
 .stat { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 14px 16px; display: grid; gap: 2px; }
@@ -91,11 +91,9 @@ button.primary:hover { background: #172d4a; }
 
 /* Passports */
 .directory { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 500px), 1fr)); gap: 16px; }
-.passport { position: relative; background: var(--card); border: 1px solid var(--line); border-left: 6px solid var(--line); border-radius: var(--radius); padding: 18px 20px; box-shadow: 0 1px 0 rgba(24, 32, 46, 0.04), 0 8px 24px -18px rgba(24, 32, 46, 0.35); }
-.passport-pass { border-left-color: var(--pass); }
-.passport-warn { border-left-color: var(--warn); }
-.passport-fail { border-left-color: var(--fail); }
-.passport-blocked { border-left-color: var(--blocked); background: linear-gradient(180deg, #fff3f0, var(--card) 140px); }
+.passport { position: relative; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px 20px; box-shadow: 0 1px 0 rgba(24, 32, 46, 0.04), 0 8px 24px -18px rgba(24, 32, 46, 0.35); }
+.passport-fail { border-color: #e2b9b3; }
+.passport-blocked { border-color: #d9a3ab; background: linear-gradient(180deg, #fff3f0, var(--card) 140px); }
 .passport-head { display: flex; justify-content: space-between; gap: 16px; align-items: flex-start; }
 .passport-head h3 { margin: 0; font: 600 1.3rem/1.2 var(--display); }
 .passport-url { margin: 4px 0 0; color: var(--ink-2); font-size: 0.9rem; }
