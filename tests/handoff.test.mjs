@@ -280,3 +280,42 @@ test("only Gatehouse's own slot resolves, and a blocked site cannot be let in", 
   assert.match(refused.reason, /blocked/);
   assert.equal(AssistantMount.reviewDetails("let_in", { url: `${LANTERN}/lantern_tours` }).refusal, refused.reason);
 });
+
+/**
+ * Serve a Kestrel network whose front agent also lists other networks, and let it in.
+ */
+async function kestrelCalling(web, house, extraTools, allowedPeers) {
+  const network = JSON.parse(await readFile(path.join(ROOT, "demos/kestrel/kestrel_ferries.network.json"), "utf8"));
+  network.tools[0].tools = [...network.tools[0].tools, ...extraTools];
+  web.override(`${KESTREL}/kestrel_ferries.network.json`, JSON.stringify(network));
+  const manifest = JSON.parse(await readFile(path.join(ROOT, "demos/kestrel/agent-manifest.json"), "utf8"));
+  delete manifest.actions;
+  manifest.allowed_peers = allowedPeers;
+  web.override(`${KESTREL}/agent-manifest.json`, JSON.stringify(manifest));
+  await letInKestrel(house);
+}
+
+test("a peer that calls back into Gatehouse is not offered the call (cycle)", async () => {
+  const web = new TestWeb();
+  const run = await bootGatehouse(web, ASK_PEER, PEER_ANSWER);
+  await kestrelCalling(web, run.house, [`${GATEHOUSE}/gatehouse`], [GATEHOUSE]);
+  await run.engine.runTurn("Ask Kestrel.");
+  assert.equal(run.peerModel.calls.length, 1);
+  assert.ok(!run.peerModel.toolNames(0).includes("gatehouse"), "the call back must not be offered");
+  const skip = run.events.find((e) => e.kind === "composition_skip");
+  assert.match(skip.reason, /already visited/);
+});
+
+test("a peer that asks for an origin outside its allowed_peers is refused (denied origin)", async () => {
+  const web = new TestWeb();
+  const run = await bootGatehouse(web, ASK_PEER, [
+    { tool: "elsewhere", arguments: { request: "hello" } },
+    { text: "I could not reach it." },
+  ]);
+  await kestrelCalling(web, run.house, ["https://elsewhere.example/elsewhere"], []);
+  run.consents.length = 0;
+  await run.engine.runTurn("Ask Kestrel.");
+  const peerResults = JSON.stringify(run.peerModel.calls[1].messages.filter((m) => m.role === "tool"));
+  assert.match(peerResults, /not in kestrel_ferries's allowed_peers/);
+  assert.equal(web.to("https://elsewhere.example").length, 0, "nothing was fetched from the denied origin");
+});
