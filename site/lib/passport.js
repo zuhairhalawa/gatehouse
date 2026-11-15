@@ -446,7 +446,7 @@ export async function checkSite(networkUrl, options = {}) {
   const mode = manifest.peer_policy?.mode;
   checks.add("peer_policy", mode === "closed" ? "pass" : "warn", "Peer policy",
     mode === "closed"
-      ? `Closed: only ${(manifest.allowed_peers || []).length} listed origin(s) may be contacted.`
+      ? closedPolicyText((manifest.allowed_peers || []).length)
       : `Mode "${mode || "missing"}": the network may ask to contact origins it does not list.`,
     "3.2");
   const routerBase = String(manifest.llm_router?.base_url || "");
@@ -478,6 +478,14 @@ export async function checkSite(networkUrl, options = {}) {
   passport.pin = await fingerprintFiles({ manifest, network: networkJson, links }, parsed.name);
   passport.fingerprint = passport.pin.fingerprint;
   return finish(passport, checks);
+}
+
+/**
+ * Describe a closed peer policy by how many origins it lists.
+ */
+function closedPolicyText(count) {
+  if (count === 0) return "Closed: it may contact no other origin.";
+  return `Closed: it may contact only the ${count} origin${count === 1 ? "" : "s"} it lists.`;
 }
 
 /**

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-11-15T18:07:10.893Z",
+  "generatedAt": "2026-11-15T18:59:59.387Z",
   "counts": {
     "total": 6,
     "loadable": 4,
@@ -45,7 +45,7 @@
         "verdict": "pass",
         "loadable": true,
         "summary": "Loadable and meets every checked rule.",
-        "checkedAt": "2026-11-15T18:07:09.084Z",
+        "checkedAt": "2026-11-15T18:59:57.360Z",
         "checks": [
           {
             "id": "https",
@@ -121,7 +121,7 @@
             "id": "peer_policy",
             "status": "pass",
             "title": "Peer policy",
-            "detail": "Closed: only 0 listed origin(s) may be contacted.",
+            "detail": "Closed: it may contact no other origin.",
             "ref": "3.2"
           },
           {
@@ -222,7 +222,7 @@
         "verdict": "pass",
         "loadable": true,
         "summary": "Loadable and meets every checked rule.",
-        "checkedAt": "2026-11-15T18:07:10.304Z",
+        "checkedAt": "2026-11-15T18:59:58.748Z",
         "checks": [
           {
             "id": "https",
@@ -298,7 +298,7 @@
             "id": "peer_policy",
             "status": "pass",
             "title": "Peer policy",
-            "detail": "Closed: only 0 listed origin(s) may be contacted.",
+            "detail": "Closed: it may contact no other origin.",
             "ref": "3.2"
           },
           {
@@ -401,7 +401,7 @@
         "verdict": "pass",
         "loadable": true,
         "summary": "Loadable and meets every checked rule.",
-        "checkedAt": "2026-11-15T18:07:08.249Z",
+        "checkedAt": "2026-11-15T18:59:56.462Z",
         "checks": [
           {
             "id": "https",
@@ -477,7 +477,7 @@
             "id": "peer_policy",
             "status": "pass",
             "title": "Peer policy",
-            "detail": "Closed: only 0 listed origin(s) may be contacted.",
+            "detail": "Closed: it may contact no other origin.",
             "ref": "3.2"
           },
           {
@@ -579,7 +579,7 @@
         "verdict": "pass",
         "loadable": true,
         "summary": "Loadable and meets every checked rule.",
-        "checkedAt": "2026-11-15T18:07:08.877Z",
+        "checkedAt": "2026-11-15T18:59:57.125Z",
         "checks": [
           {
             "id": "https",
@@ -655,7 +655,7 @@
             "id": "peer_policy",
             "status": "pass",
             "title": "Peer policy",
-            "detail": "Closed: only 1 listed origin(s) may be contacted.",
+            "detail": "Closed: it may contact only the 1 origin it lists.",
             "ref": "3.2"
           },
           {
@@ -774,7 +774,7 @@
         "verdict": "fail",
         "loadable": false,
         "summary": "Not loadable: browsers on other sites cannot read its files (missing CORS).",
-        "checkedAt": "2026-11-15T18:07:07.578Z",
+        "checkedAt": "2026-11-15T18:59:55.707Z",
         "checks": [
           {
             "id": "https",
@@ -964,7 +964,7 @@
         "verdict": "blocked",
         "loadable": true,
         "summary": "Its instructions try to steer the caller's model. Do not let it in.",
-        "checkedAt": "2026-11-15T18:07:09.728Z",
+        "checkedAt": "2026-11-15T18:59:58.093Z",
         "checks": [
           {
             "id": "https",
@@ -1040,7 +1040,7 @@
             "id": "peer_policy",
             "status": "pass",
             "title": "Peer policy",
-            "detail": "Closed: only 0 listed origin(s) may be contacted.",
+            "detail": "Closed: it may contact no other origin.",
             "ref": "3.2"
           },
           {
