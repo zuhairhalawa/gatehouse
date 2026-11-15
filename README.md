@@ -42,6 +42,14 @@ working answer to those three, built on the reference runtime without changing i
 | `vendor/agentify-website/` | The challenge's reference runtime, templates and build scripts, unchanged (Apache-2.0) |
 | `tests/` | Unit tests and end-to-end tests on the real runtime with a scripted model |
 
+## Demo sites on a second origin
+
+The demo sites are published from `demos/` (with `scripts/export_demos.mjs`) to their own
+origin, so that letting one in crosses origins as the spec describes:
+
+- Kestrel Bay Ferries: `https://gatehouse-demos.github.io/kestrel/kestrel_ferries`
+- Lantern Quay Tours, the unsafe test site: `https://gatehouse-demos.github.io/lantern/lantern_tours`
+
 ## Run it locally
 
 Node 22 or newer, no install step.
